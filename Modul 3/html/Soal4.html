@@ -1,0 +1,543 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Soal4</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-10-01"><meta name="DC.source" content="Soal4.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="keyword">function</span> varargout = Soal4(varargin)
+<span class="comment">% SOAL4 MATLAB code for Soal4.fig</span>
+<span class="comment">%      SOAL4, by itself, creates a new SOAL4 or raises the existing</span>
+<span class="comment">%      singleton*.</span>
+<span class="comment">%</span>
+<span class="comment">%      H = SOAL4 returns the handle to a new SOAL4 or the handle to</span>
+<span class="comment">%      the existing singleton*.</span>
+<span class="comment">%</span>
+<span class="comment">%      SOAL4('CALLBACK',hObject,eventData,handles,...) calls the local</span>
+<span class="comment">%      function named CALLBACK in SOAL4.M with the given input arguments.</span>
+<span class="comment">%</span>
+<span class="comment">%      SOAL4('Property','Value',...) creates a new SOAL4 or raises the</span>
+<span class="comment">%      existing singleton*.  Starting from the left, property value pairs are</span>
+<span class="comment">%      applied to the GUI before Soal4_OpeningFcn gets called.  An</span>
+<span class="comment">%      unrecognized property name or invalid value makes property application</span>
+<span class="comment">%      stop.  All inputs are passed to Soal4_OpeningFcn via varargin.</span>
+<span class="comment">%</span>
+<span class="comment">%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one</span>
+<span class="comment">%      instance to run (singleton)".</span>
+<span class="comment">%</span>
+<span class="comment">% See also: GUIDE, GUIDATA, GUIHANDLES</span>
+
+<span class="comment">% Edit the above text to modify the response to help Soal4</span>
+
+<span class="comment">% Last Modified by GUIDE v2.5 01-Oct-2021 09:17:10</span>
+
+<span class="comment">% Begin initialization code - DO NOT EDIT</span>
+gui_Singleton = 1;
+gui_State = struct(<span class="string">'gui_Name'</span>,       mfilename, <span class="keyword">...</span>
+                   <span class="string">'gui_Singleton'</span>,  gui_Singleton, <span class="keyword">...</span>
+                   <span class="string">'gui_OpeningFcn'</span>, @Soal4_OpeningFcn, <span class="keyword">...</span>
+                   <span class="string">'gui_OutputFcn'</span>,  @Soal4_OutputFcn, <span class="keyword">...</span>
+                   <span class="string">'gui_LayoutFcn'</span>,  [] , <span class="keyword">...</span>
+                   <span class="string">'gui_Callback'</span>,   []);
+<span class="keyword">if</span> nargin &amp;&amp; ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+<span class="keyword">else</span>
+    gui_mainfcn(gui_State, varargin{:});
+<span class="keyword">end</span>
+<span class="comment">% End initialization code - DO NOT EDIT</span>
+
+
+<span class="comment">% --- Executes just before Soal4 is made visible.</span>
+<span class="keyword">function</span> Soal4_OpeningFcn(hObject, eventdata, handles, varargin)
+<span class="comment">% This function has no output args, see OutputFcn.</span>
+<span class="comment">% hObject    handle to figure</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+<span class="comment">% varargin   command line arguments to Soal4 (see VARARGIN)</span>
+
+<span class="comment">% Choose default command line output for Soal4</span>
+handles.output = hObject;
+
+<span class="comment">% Update handles structure</span>
+guidata(hObject, handles);
+
+<span class="comment">% UIWAIT makes Soal4 wait for user response (see UIRESUME)</span>
+<span class="comment">% uiwait(handles.figure1);</span>
+
+
+<span class="comment">% --- Outputs from this function are returned to the command line.</span>
+<span class="keyword">function</span> varargout = Soal4_OutputFcn(hObject, eventdata, handles)
+<span class="comment">% varargout  cell array for returning output args (see VARARGOUT);</span>
+<span class="comment">% hObject    handle to figure</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% Get default command line output from handles structure</span>
+varargout{1} = handles.output;
+
+
+<span class="comment">% --- Executes on button press in pushbutton1.</span>
+<span class="keyword">function</span> pushbutton1_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to pushbutton1 (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% OPEN IMAGE</span>
+[FileName,PathName]= uigetfile(<span class="keyword">...</span>
+    {<span class="string">'*.bmp;*.jpg;*.jpeg;*.png;*.tiff;*.gif'</span>, <span class="string">'File of Type(*.bmp,*.jpg,*.jpeg,*.png,*.tiff,*.gif)'</span>;
+    <span class="string">'*.bmp'</span>, <span class="string">'File Bitmap(*.bmp)'</span>;<span class="keyword">...</span>
+    <span class="string">'*.jpg'</span>, <span class="string">'File Jpg(*.jpg)'</span>;<span class="keyword">...</span>
+    <span class="string">'*.jpeg'</span>, <span class="string">'File Jpeg(*.jpeg)'</span>;<span class="keyword">...</span>
+    <span class="string">'*.png'</span>, <span class="string">'File PNG(*.png)'</span>;<span class="keyword">...</span>
+    <span class="string">'*.tiff'</span>, <span class="string">'File TIF(*.tif)'</span>;<span class="keyword">...</span>
+    <span class="string">'*.gif'</span>, <span class="string">'File GIF(*.gif)'</span>;<span class="keyword">...</span>
+    <span class="string">'*.*'</span>, <span class="string">'All type(*.*)'</span>},<span class="keyword">...</span>
+    <span class="string">'Open Image'</span>);
+<span class="keyword">if</span> ~isequal (FileName, 0)
+    handles.data1 = imread(fullfile(PathName,FileName));
+    guidata (hObject, handles);
+    axes(handles.axes1);
+    imshow(handles.data1);
+    title(<span class="string">'RGB'</span>);
+<span class="keyword">else</span>
+    <span class="keyword">return</span>
+<span class="keyword">end</span>
+
+
+<span class="comment">% --- Executes on button press in pushbutton2.</span>
+<span class="keyword">function</span> pushbutton2_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to pushbutton2 (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% CYAN</span>
+image1 = handles.data1;
+allBlack = zeros(size(image1,1),size(image1,2));
+
+cyan = image1(:,:,1);
+icyan = cat(3,allBlack,cyan,cyan);
+axes(handles.axes2);
+imshow(icyan);
+handles.data2 = cyan;
+title(<span class="string">'Cyan'</span>);
+guidata(hObject,handles);
+
+
+<span class="comment">% --- Executes on button press in pushbutton3.</span>
+<span class="keyword">function</span> pushbutton3_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to pushbutton3 (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% MAGENTA</span>
+image1 = handles.data1;
+allBlack = zeros(size(image1,1),size(image1,2));
+
+magenta = image1(:,:,1);
+imagenta = cat(3,magenta,allBlack,magenta);
+axes(handles.axes2);
+imshow(imagenta);
+handles.data2 = imagenta;
+title(<span class="string">'Magenta'</span>);
+guidata(hObject,handles);
+
+
+
+<span class="comment">% --- Executes on button press in pushbutton4.</span>
+<span class="keyword">function</span> pushbutton4_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to pushbutton4 (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% Yellow</span>
+image1 = handles.data1;
+allBlack = zeros(size(image1,1),size(image1,2));
+
+yellow = image1(:,:,1);
+iyellow = cat(3,yellow,yellow,allBlack);
+axes(handles.axes2);
+imshow(iyellow);
+handles.data2 = iyellow;
+title(<span class="string">'Yellow'</span>);
+guidata(hObject,handles);
+
+
+
+<span class="comment">% --- Executes on button press in pushbutton5.</span>
+<span class="keyword">function</span> pushbutton5_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to pushbutton5 (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% Black</span>
+image1 = handles.data1;
+allBlack = zeros(size(image1,1),size(image1,2));
+
+iblack = cat(3,allBlack,allBlack,allBlack);
+axes(handles.axes2);
+imshow(iblack);
+handles.data2 = iblack;
+title(<span class="string">'Black'</span>)
+guidata(hObject,handles);
+
+
+<span class="comment">% --- Executes on button press in pushbutton6.</span>
+<span class="keyword">function</span> pushbutton6_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to pushbutton6 (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% HSL</span>
+image1 = handles.data1;
+hsl = rgb2hsv(image1);
+axes(handles.axes2);
+imshow(hsl);
+handles.data2 = hsl;
+title(<span class="string">'HSL'</span>)
+guidata(hObject,handles);
+
+
+
+<span class="comment">% --- Executes on button press in pushbutton7.</span>
+<span class="keyword">function</span> pushbutton7_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to pushbutton7 (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% HSI</span>
+image1 = handles.data1;
+hsi = rgb2hsi(image1);
+axes(handles.axes2);
+imshow(hsi);
+handles.data2 = hsi;
+title(<span class="string">'HSI'</span>)
+guidata(hObject,handles);
+
+
+<span class="comment">% --- Executes on button press in pushbutton8.</span>
+<span class="keyword">function</span> pushbutton8_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to pushbutton8 (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+<span class="comment">% SAVE IMAGE</span>
+save = handles.data2;
+[filename, pathname] = uiputfile(<span class="keyword">...</span>
+    {<span class="string">'*.jpg'</span>,<span class="string">'File Jpeg(*.jpg)'</span>;<span class="keyword">...</span>
+    <span class="string">'*.bmp'</span>, <span class="string">'File Bitmap(*.bmp)'</span>;<span class="keyword">...</span>
+    <span class="string">'*.png'</span>, <span class="string">'File PNG(*.png)'</span>;<span class="keyword">...</span>
+    <span class="string">'*.tif'</span>,<span class="string">'File Tif(*.tif)'</span>;
+    <span class="string">'*.*'</span>,<span class="string">'All Files(*.*)'</span>},<span class="keyword">...</span>
+    <span class="string">'Save Image'</span>);
+
+<span class="keyword">if</span> ~isequal(filename,0)
+    imwrite(save, fullfile(pathname,filename));
+<span class="keyword">else</span>
+    <span class="keyword">return</span>
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="Soal4_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+function varargout = Soal4(varargin)
+% SOAL4 MATLAB code for Soal4.fig
+%      SOAL4, by itself, creates a new SOAL4 or raises the existing
+%      singleton*.
+%
+%      H = SOAL4 returns the handle to a new SOAL4 or the handle to
+%      the existing singleton*.
+%
+%      SOAL4('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in SOAL4.M with the given input arguments.
+%
+%      SOAL4('Property','Value',...) creates a new SOAL4 or raises the
+%      existing singleton*.  Starting from the left, property value pairs are
+%      applied to the GUI before Soal4_OpeningFcn gets called.  An
+%      unrecognized property name or invalid value makes property application
+%      stop.  All inputs are passed to Soal4_OpeningFcn via varargin.
+%
+%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+%      instance to run (singleton)".
+%
+% See also: GUIDE, GUIDATA, GUIHANDLES
+
+% Edit the above text to modify the response to help Soal4
+
+% Last Modified by GUIDE v2.5 01-Oct-2021 09:17:10
+
+% Begin initialization code - DO NOT EDIT
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @Soal4_OpeningFcn, ...
+                   'gui_OutputFcn',  @Soal4_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+% End initialization code - DO NOT EDIT
+
+
+% REPLACE_WITH_DASH_DASH- Executes just before Soal4 is made visible.
+function Soal4_OpeningFcn(hObject, eventdata, handles, varargin)
+% This function has no output args, see OutputFcn.
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% varargin   command line arguments to Soal4 (see VARARGIN)
+
+% Choose default command line output for Soal4
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+% UIWAIT makes Soal4 wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
+
+
+% REPLACE_WITH_DASH_DASH- Outputs from this function are returned to the command line.
+function varargout = Soal4_OutputFcn(hObject, eventdata, handles) 
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+
+
+% REPLACE_WITH_DASH_DASH- Executes on button press in pushbutton1.
+function pushbutton1_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% OPEN IMAGE
+[FileName,PathName]= uigetfile(...
+    {'*.bmp;*.jpg;*.jpeg;*.png;*.tiff;*.gif', 'File of Type(*.bmp,*.jpg,*.jpeg,*.png,*.tiff,*.gif)';
+    '*.bmp', 'File Bitmap(*.bmp)';...
+    '*.jpg', 'File Jpg(*.jpg)';...
+    '*.jpeg', 'File Jpeg(*.jpeg)';...
+    '*.png', 'File PNG(*.png)';...
+    '*.tiff', 'File TIF(*.tif)';...
+    '*.gif', 'File GIF(*.gif)';...
+    '*.*', 'All type(*.*)'},...
+    'Open Image');
+if ~isequal (FileName, 0)
+    handles.data1 = imread(fullfile(PathName,FileName));
+    guidata (hObject, handles);
+    axes(handles.axes1);
+    imshow(handles.data1);
+    title('RGB');
+else
+    return
+end
+
+
+% REPLACE_WITH_DASH_DASH- Executes on button press in pushbutton2.
+function pushbutton2_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% CYAN
+image1 = handles.data1;
+allBlack = zeros(size(image1,1),size(image1,2));
+
+cyan = image1(:,:,1);
+icyan = cat(3,allBlack,cyan,cyan);
+axes(handles.axes2);
+imshow(icyan);
+handles.data2 = cyan;
+title('Cyan');
+guidata(hObject,handles);
+
+
+% REPLACE_WITH_DASH_DASH- Executes on button press in pushbutton3.
+function pushbutton3_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% MAGENTA
+image1 = handles.data1;
+allBlack = zeros(size(image1,1),size(image1,2));
+
+magenta = image1(:,:,1);
+imagenta = cat(3,magenta,allBlack,magenta);
+axes(handles.axes2);
+imshow(imagenta);
+handles.data2 = imagenta;
+title('Magenta');
+guidata(hObject,handles);
+
+
+
+% REPLACE_WITH_DASH_DASH- Executes on button press in pushbutton4.
+function pushbutton4_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Yellow
+image1 = handles.data1;
+allBlack = zeros(size(image1,1),size(image1,2));
+
+yellow = image1(:,:,1);
+iyellow = cat(3,yellow,yellow,allBlack);
+axes(handles.axes2);
+imshow(iyellow);
+handles.data2 = iyellow;
+title('Yellow');
+guidata(hObject,handles);
+
+
+
+% REPLACE_WITH_DASH_DASH- Executes on button press in pushbutton5.
+function pushbutton5_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton5 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Black 
+image1 = handles.data1;
+allBlack = zeros(size(image1,1),size(image1,2));
+
+iblack = cat(3,allBlack,allBlack,allBlack);
+axes(handles.axes2);
+imshow(iblack);
+handles.data2 = iblack;
+title('Black')
+guidata(hObject,handles);
+
+
+% REPLACE_WITH_DASH_DASH- Executes on button press in pushbutton6.
+function pushbutton6_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton6 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% HSL
+image1 = handles.data1;
+hsl = rgb2hsv(image1);
+axes(handles.axes2);
+imshow(hsl);
+handles.data2 = hsl;
+title('HSL')
+guidata(hObject,handles);
+
+
+
+% REPLACE_WITH_DASH_DASH- Executes on button press in pushbutton7.
+function pushbutton7_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton7 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% HSI
+image1 = handles.data1;
+hsi = rgb2hsi(image1);
+axes(handles.axes2);
+imshow(hsi);
+handles.data2 = hsi;
+title('HSI')
+guidata(hObject,handles);
+
+
+% REPLACE_WITH_DASH_DASH- Executes on button press in pushbutton8.
+function pushbutton8_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton8 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% SAVE IMAGE
+save = handles.data2;
+[filename, pathname] = uiputfile(...
+    {'*.jpg','File Jpeg(*.jpg)';...
+    '*.bmp', 'File Bitmap(*.bmp)';...
+    '*.png', 'File PNG(*.png)';...
+    '*.tif','File Tif(*.tif)';
+    '*.*','All Files(*.*)'},...
+    'Save Image');
+
+if ~isequal(filename,0)
+    imwrite(save, fullfile(pathname,filename));
+else
+    return
+end
+
+
+
+
+
+##### SOURCE END #####
+--></body></html>
